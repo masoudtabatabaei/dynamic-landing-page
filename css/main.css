@@ -6,4 +6,30 @@
 
 body {
   font-family: 'Quicksand' , sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+
+#time {
+  font-size: 8rem;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+
+
+@media screen and (max-width : 700px) {
+  #time {
+    font-size: 6rem;
+  }
 }
