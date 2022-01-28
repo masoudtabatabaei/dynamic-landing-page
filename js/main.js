@@ -22,4 +22,29 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
+// set background and greeting
+function setBackgroundAndGreeting() {
+    const today = new Date();
+    let hours = today.getHours();
+    
+    if(hours < 12) {
+        // morning
+        document.body.style.backgroundImage = "url('../img/morning.jpg')";
+        greeting.textContent = "Good Morning"
+        document.body.style.color = "black";
+        console.log('morning');
+    } else if(hours < 18) {
+        // afternoon
+        document.body.style.backgroundImage = "url('../img/afternoon.jpg')";
+        greeting.textContent = "Good Afternoon";
+        console.log('afternoon');
+    } else {
+        // night
+        document.body.style.backgroundImage = "url('../img/night.jpg')";
+        greeting.textContent = "Good Night";
+        console.log('night');
+    }
+}
+
 showTime();
+setBackgroundAndGreeting();
