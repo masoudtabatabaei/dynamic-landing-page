@@ -9,7 +9,7 @@ function showTime() {
 
     let hours = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
     let minutes = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
-    let seconds = date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds();
+    let seconds = date.getSeconds() <span 10 ? '0'+date.getSeconds() : date.getSeconds();
 
     //AM or PM format
     const amPm = hours >= 12 ? "PM" : "AM";
@@ -65,6 +65,23 @@ function getFocus() {
         focus.textContent = localStorage.getItem('focus');
     }
 }
+
+
+// set name 
+function setName(e) {
+    if(e.type === "keypress") {
+        if(e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('name' , e.target.textContent);
+            name.blur();
+        }
+    } else {
+        localStorage.setItem('name' , e.target.textContent);
+    }
+}
+
+name.addEventListener('keypress' , setName);
+name.addEventListener('blur' , setName);
+
 
 showTime();
 setBackgroundAndGreeting();
