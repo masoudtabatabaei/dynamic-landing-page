@@ -9,7 +9,7 @@ function showTime() {
 
     let hours = date.getHours() < 10 ? '0'+date.getHours() : date.getHours();
     let minutes = date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes();
-    let seconds = date.getSeconds() <span 10 ? '0'+date.getSeconds() : date.getSeconds();
+    let seconds = date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds();
 
     //AM or PM format
     const amPm = hours >= 12 ? "PM" : "AM";
@@ -81,6 +81,21 @@ function setName(e) {
 
 name.addEventListener('keypress' , setName);
 name.addEventListener('blur' , setName);
+
+
+function setFocus(e) {
+    if(e.type === "keypress") {
+        if(e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('focus' , e.target.textContent);
+            focus.blur();
+        }
+    } else {
+        localStorage.setItem('focus' , e.target.textContent);
+    }
+}
+
+focus.addEventListener("keypress" , setFocus);
+focus.addEventListener("blur" , setFocus);
 
 
 showTime();
