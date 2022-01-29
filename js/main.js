@@ -46,5 +46,16 @@ function setBackgroundAndGreeting() {
     }
 }
 
+
+// get name
+function getName() {
+    if(localStorage.getItem('name') === null) {
+        name.textContent = "[Enter Name]";
+    } else {
+        name.textContent = localStorage.getItem('name');
+    }
+}
+
 showTime();
 setBackgroundAndGreeting();
+getName();
